@@ -3,7 +3,7 @@ name: Validate DB Script
 on:
   pull_request:
     paths:
-      - 'db-scripts/scripts/**.sql'
+      - 'scripts/**.sql'
 
 jobs:
   validate-sql:
