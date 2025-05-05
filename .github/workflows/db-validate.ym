@@ -12,7 +12,7 @@ jobs:
 
       - name: Validate SQL scripts
         run: |
-          for file in *.sql; do
+          for file in scripts/*.sql; do
             echo "Validating $file"
 
             # Verifica o nome do arquivo
