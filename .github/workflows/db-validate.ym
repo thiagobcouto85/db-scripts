@@ -1,7 +1,9 @@
 name: Validate DB Script
 
 on:
-  pull_request
+   pull_request:
+    paths:
+      - 'scripts/**.sql'
 
 jobs:
   validate-sql:
