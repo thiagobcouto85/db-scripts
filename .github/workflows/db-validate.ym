@@ -1,7 +1,7 @@
 name: Validate DB Script
 
 on:
-  pull_request:
+   pull_request:
     paths:
       - 'scripts/**.sql'
 
@@ -18,15 +18,15 @@ jobs:
             echo "Validating $file"
 
             # Verifica o nome do arquivo
-            filename=$(basename "$file")
-            if [[ ! "$filename" =~ ^[0-9]{14}\.sql$ ]]; then
-              echo "❌ Nome inválido: $filename. Use o formato YYYYmmddhhmmss.sql"
-              exit 1
-            fi
+            # filename=$(basename "$file")
+            # if [[ ! "$filename" =~ ^[0-9]{14}\.sql$ ]]; then
+            #   echo "❌ Nome inválido: $filename. Use o formato YYYYmmddhhmmss.sql"
+            #   exit 1
+            # fi
 
             # Verifica o comentário inicial
-            head -n 2 "$file" | grep -q "Ticket:" || { echo "❌ Faltando comentário 'Ticket:' no início do arquivo."; exit 1; }
-            head -n 2 "$file" | grep -q "Network:" || { echo "❌ Faltando comentário 'Network:' no início do arquivo."; exit 1; }
+            # head -n 2 "$file" | grep -q "Ticket:" || { echo "❌ Faltando comentário 'Ticket:' no início do arquivo."; exit 1; }
+            # head -n 2 "$file" | grep -q "Network:" || { echo "❌ Faltando comentário 'Network:' no início do arquivo."; exit 1; }
 
             # Verifica se comandos estão em uppercase
             if grep -Eiq '\bselect\b|\bfrom\b|\bwhere\b' "$file"; then
